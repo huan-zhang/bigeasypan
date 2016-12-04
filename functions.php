@@ -31,13 +31,26 @@ function getAttachUrl ($postId, $itself = false) {
 	}
 	return "";
 }
-/*
+
 function get_current_cat() {
 	$categories = get_the_category();
+	for($i = 0; $i < sizeof($categories); $i++ ) 
+		if (in_array($categories[$i]->cat_ID, array(3, 4, 6, 7)))
+			return $categories[$i];
+	
 	$category = $categories[0];
 	return $category;
 }
-*/
+
+function get_carousel_post ($count = 0) {
+	$args = array(
+		'category' => 2,
+		'numberposts' => 4
+	);
+	$posts = get_posts($args);
+	return $posts[$count];
+}
+
 add_filter('the_content', 'strip_images',2);
 function strip_images($content) {
 	if (in_category('2'))
@@ -46,38 +59,64 @@ function strip_images($content) {
 		return $content;
 }
 
-function disable_embeds_init() {
+function custom_pagination($numpages = '', $pagerange = '', $paged = '', $postvar = null) {
 
-	// Remove the REST API endpoint.
-	remove_action('rest_api_init', 'wp_oembed_register_route');
+	if (empty($pagerange)) {
+		$pagerange = 2;
+	}
 
-	// Turn off oEmbed auto discovery.
-	// Don't filter oEmbed results.
-	remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
+	/**
+	 * This first part of our function is a fallback
+	 * for custom pagination inside a regular loop that
+	 * uses the global $paged and global $wp_query variables.
+	 *
+	 * It's good because we can now override default pagination
+	 * in our theme, and use this function in default quries
+	 * and custom queries.
+	 */
+	if (empty($paged)) {
+		$paged = 1;
+	}
+	if ($numpages == '') {
+		global $wp_query;
+		$numpages = $wp_query->max_num_pages;
+		if(!$numpages) {
+			$numpages = 1;
+		}
+	}
+	
+	/**
+	 * We construct the pagination arguments to enter into our paginate_links
+	 * function.
+	 */
+	$curUrl = get_permalink();
+	if (!empty($postvar)) 
+		$curUrl = get_permalink($postvar);
 
-	// Remove oEmbed discovery links.
-	remove_action('wp_head', 'wp_oembed_add_discovery_links');
+	$pagination_args = array(
+			'base'            => $curUrl . '%_%',
+			'format'          => '%#%',
+			'total'           => $numpages,
+			'current'         => $paged,
+			'show_all'        => False,
+			'end_size'        => 1,
+			'mid_size'        => $pagerange,
+			'prev_next'       => True,
+			'prev_text'       => __('&lt;&lt;'),
+			'next_text'       => __('&gt;&gt;'),
+			'type'            => 'plain',
+			'add_args'        => false,
+			'add_fragment'    => ''
+	);
+	
+	$paginate_links = paginate_links($pagination_args);
+	
+	if ($paginate_links) {
+		echo "<nav class='custom-pagination'>";
+		//echo "<span class='page-numbers page-num'>Page " . $paged . " of " . $numpages . "</span> ";
+		echo $paginate_links;
+		echo "</nav>";
+	}
 
-	// Remove oEmbed-specific JavaScript from the front-end and back-end.
-	remove_action('wp_head', 'wp_oembed_add_host_js');
 }
-
-add_action('init', 'disable_embeds_init', 9999);
-
-function disable_wp_emojicons() {
-
-	// all actions related to emojis
-	remove_action( 'admin_print_styles', 'print_emoji_styles' );
-	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-
-	// filter to remove TinyMCE emojis
-	add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
-}
-add_action( 'init', 'disable_wp_emojicons' );
-
 ?>

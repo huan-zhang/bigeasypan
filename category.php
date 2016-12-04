@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<div class="container">
 	<div class="row">
 		<div class="col-xm-12">
 			<div id="breadcrumb">
@@ -11,25 +10,25 @@
 			</div>
 		</div>
 	</div> <!-- /.row -->
-<div class="row">
-	<div class="col-md-8">
+	<!-- <div class="row">-->
+	<div class="row">
+		<div class="col-md-8">
 <?php if ( is_category("3")) : ?>	
-		<img src="<?php echo getAttachUrl(55, true);?>" width="595" height="350" />
+			<img src="<?php echo getAttachUrl(55, true);?>" width="595" height="350" />
 <?php elseif ( is_category("4")) : ?>	
-		<img src="<?php echo getAttachUrl(57, true);?>" width="595" height="350"  />
+			<img src="<?php echo getAttachUrl(57, true);?>" width="595" height="350"  />
 <?php elseif ( is_category("6")) : ?>	
-		<img src="<?php echo getAttachUrl(56, true);?>" width="595" height="350"  />
+			<img src="<?php echo getAttachUrl(56, true);?>" width="595" height="350"  />
 <?php elseif ( is_category("7")) : ?>	
-		<img src="<?php echo getAttachUrl(58, true);?>" width="595" height="350"  />
+			<img src="<?php echo getAttachUrl(58, true);?>" width="595" height="350"  />
 <?php else : ?>
-		<p> it is not category </p>
+			<p> it is not category </p>
 <?php endif;?>
-	</div> <!-- /.col-md-8 -->
-</section>
-<aside id="sidebar" class="hidden-xs hidden-sm">
-	<div class="col-md-4">
-		<?php get_sidebar("category"); ?>
+		</div> <!-- /.col-md-8 -->
+		<aside id="sidebar" class="hidden-xs hidden-sm">
+			<div class="col-md-4">
+<?php get_sidebar("category"); ?>
+			</div>
+		</aside>
 	</div>
-</aside>
-</div> <!-- /.container -->
 <?php get_footer(); ?>

@@ -1,42 +1,32 @@
 <?php get_header(); ?>
-	<div class="container">
 		<div class="row">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 	  			<!-- Indicators -->
 				<ol class="carousel-indicators">
-				
-				<?php $counter = 0; if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-		
-				<?php echo "in category 2 ? " . in_category( '2', $post ); ?>
-				<?php if ( in_category( '2', $post ) ) : ?>
-		
-	 				<?php if ($counter == 0) : ?>
-					<li data-target="#myCarousel" data-slide-to="<?php echo $counter; ?>" class="active"></li>
-					<?php else : ?>
-					<li data-target="#myCarousel" data-slide-to="<?php echo $counter; ?>" ></li>
-					<?php endif; ?>
-	 			<?php else : continue; endif; ?>
-				<?php $counter++; endwhile; endif;?>
+				<?php //$counter = 0; if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php for($i = 0; $i < 4; $i++ ) : ?>
+	<?php if ($i == 0) : ?>
+					<li data-target="#myCarousel" data-slide-to="<?php echo $i; ?>" class="active"></li>
+	<?php else : ?>
+					<li data-target="#myCarousel" data-slide-to="<?php echo $i; ?>" ></li>
+	<?php endif; ?>
+<?php endfor;?>
 				</ol>
-	  			<div class="carousel-inner" role="listbox">
-	  		  	<?php $counter = 0; if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	  				<?php if ( in_category( '2' ) ) : ?>
-	  					<?php if ($counter == 0) : ?>
-	  				<div class="item active">	
-						<?php else : ?>
+				<div class="carousel-inner" role="listbox">
+<?php for($i = 0; $i < 4; $i++ ) : ?>
+	<?php if ($i == 0) :  ?>
+					<div class="item active">
+	<?php else : ?>
 					<div class="item">
-						<?php endif; ?>
+	<?php endif; $post = get_carousel_post($i); setup_postdata($post); ?>
 						<img src="<?php echo getAttachUrl(get_the_ID()); ?>" class="current" alt="<?php echo get_the_Title();?>" />	
 						<div class="carousel-caption">
 							<h3><?php echo the_title(); ?></h3>
 							<p><?php echo the_content("更多...", TRUE); ?></p>
 						</div>
-		  			</div>			
-				
-		 			<?php else : continue; endif; ?>
-				<?php $counter++; endwhile; endif;?>
-	  			</div>		
-	
+					</div>	
+<?php endfor;?>
+				</div>		
 	  			
 				<!-- Wrapper for slides -->
 	
@@ -52,10 +42,7 @@
 			</div>
 		</div>
 		<div class="row">
-		<?php 
-			get_template_part( 'index-categories');
-		?>	
+<?php get_template_part( 'index-categories'); ?>	
 		</div> <!-- /.row -->
-	</div> <!-- /.container -->
 
 <?php get_footer(); ?>

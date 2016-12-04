@@ -24,7 +24,10 @@
 	<div class="blog-masthead">
 		<div class="container">
 			<nav class="blog-nav">
-				<a class="blog-nav-item active" href="#">大易盘</a>
+				<a class="blog-nav-item active" href="<?php bloginfo( 'wpurl' );?>">大易盘</a>
+				<?php foreach(get_categories(array('parent'=>5, 'hide_empty'=>false)) as $cat) : ?>
+				<a class="blog-nav-item" href="<?php echo esc_url(get_category_link($cat->cat_ID)); ?>" ><?php echo $cat->name; ?></a>
+				<?php endforeach; ?>
 				<?php wp_list_pages( '&title_li=' ); ?>
 			</nav>
 		</div>
