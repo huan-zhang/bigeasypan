@@ -1,7 +1,9 @@
 <div>
 	<ol class="sidebar-left">
 		<div class="sidebar-title">近期更新</div>
+
 <?php 
+
 $tmp = $wp_query;
 $curPost = $post;
 $cid = get_current_cat()->cat_ID;

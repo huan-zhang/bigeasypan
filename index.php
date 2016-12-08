@@ -2,7 +2,7 @@
 		<div class="row">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 	  			<!-- Indicators -->
-				<ol class="carousel-indicators">
+				<ol class="carousel-indicators" >
 				<?php //$counter = 0; if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <?php for($i = 0; $i < 4; $i++ ) : ?>
 	<?php if ($i == 0) : ?>
@@ -22,7 +22,10 @@
 						<img src="<?php echo getAttachUrl(get_the_ID()); ?>" class="current" alt="<?php echo get_the_Title();?>" />	
 						<div class="carousel-caption">
 							<h3><?php echo the_title(); ?></h3>
-							<p><?php echo the_content("更多...", TRUE); ?></p>
+							<p><?php echo the_content(" ", TRUE); ?></p> 
+							<?php $tmp = get_post_custom_values("forward_post", get_the_ID()); $forwardId = $tmp[0];?>
+							
+							<p><a href="<?php echo get_permalink($forwardId); ?>">更多...</a></p>
 						</div>
 					</div>	
 <?php endfor;?>

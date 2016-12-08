@@ -21,4 +21,8 @@ $(document).ready(function () {
 	        $(this).parent().children('.sidebar-item-content').stop().slideUp();
 	    })
 	});
+	$('.grid').masonry({
+		// options
+		itemSelector: '.grid-item'
+	});
 });

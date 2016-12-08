@@ -22,7 +22,7 @@
 					<?php echo $cat->name; ?>
 				</div>
 			</a>
-			<p><?php $short = explode("<!--more-->", $cat->description); echo $short[0];?></p>
+			<p><?php $short = explode("<!--more-->", $cat->description); echo wpautop($short[0]);?></p>
 			<br />
 			<a href="<?php echo esc_url(get_category_link($cat->cat_ID)); ?>" ><?php echo $cat->ID; ?>更多 ...</a>	
 		</div>

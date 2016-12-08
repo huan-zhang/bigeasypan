@@ -4,13 +4,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta name="google-site-verification" content="o3jPCEtOuwXe80BiF5Huxw5RMyLaNa1hGElSBrWCm_A" />
 
 	<title><?php echo get_bloginfo("name"); ?></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css" >
 	
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -22,7 +23,7 @@
 
 <body>
 	<div class="blog-masthead">
-		<div class="container">
+		<div class="container-fluid">
 			<nav class="blog-nav">
 				<a class="blog-nav-item active" href="<?php bloginfo( 'wpurl' );?>">大易盘</a>
 				<?php foreach(get_categories(array('parent'=>5, 'hide_empty'=>false)) as $cat) : ?>

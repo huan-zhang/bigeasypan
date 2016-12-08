@@ -11,7 +11,6 @@ add_action( 'wp_enqueue_scripts', 'bigeasypan_scripts' );
 //add_theme_support( 'title-tag' );
 
 function getAttachUrl ($postId, $itself = false) {
-	
 	if (!$itself) { // get attachment from a post
 		$args = array(
 				'numberposts' => -1,
@@ -22,12 +21,14 @@ function getAttachUrl ($postId, $itself = false) {
 		);
 		$attachments = get_posts( $args );
 		if ( $attachments ) {
-			$attachment = wp_get_attachment_image_src( $attachments[0]->ID, 'large' );
+			$attachment = wp_get_attachment_image_src( $attachments[0]->ID, array(1200, 640) );
 			return $attachment[0];
 		} 
 	} else { 
 		$post = get_post($postId);
-		if ($post)		return $post->guid;
+		if ($post)	{
+			return $post->guid;
+		}
 	}
 	return "";
 }

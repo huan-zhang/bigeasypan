@@ -9,7 +9,8 @@ body {
   		/*"Hiragino Sans GB", "冬青黑体",*/
     	STFangsong, "华文仿宋", 
     	serif;
- 	color: #555;
+ 	color: #222;
+ 	font-size: 16px;
 }
 
 /*
@@ -18,7 +19,9 @@ body {
 
 @media (min-width: 1200px) {
   .container {
-    width: 970px;
+    /*width: 970px;*/
+    /*width: 100%;*/
+    width: 1024px;
   }
 }
 
@@ -83,7 +86,7 @@ body {
   font-weight: normal;
 }
 .blog-description {
-  font-size: 20px;
+  font-size: 30px;
   color: #999;
 }
 
@@ -177,6 +180,10 @@ body {
 	padding: 20px;
 }
 
+.index-category p {
+	text-align: left;
+}
+
 .section-info {
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -256,9 +263,14 @@ body {
     padding: 10px;
 }
 
+.sidebar-image img {
+	max-width: 100%;
+	max-height: 100%;
+}
 .screen-reader-text {
 	display: none;
 }
+
 
 
 .pagination {
@@ -299,3 +311,34 @@ body {
 .last-update {
 	color: #CCCCCC;
 }
+
+.category-post-block {
+	border-radius: 4px;
+	border: 1px;
+	border-color: #BBBBBB;
+	border-style: solid;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 15px;
+	margin-right: 10px;
+	padding-bottom: 20px;
+	box-shadow:	7px 7px 3px #AAAAAA;	
+}
+
+.category-post-essential {
+	background-color: #ADD0BD;
+}
+
+.category-post-detail {
+	font-size: 18px;
+}
+
+div.category-post-block:hover {
+	box-shadow:	10px 10px 6px #AAAAAA;
+}
+
+
+
+.modal-body {
+	padding: 20px;
+} 
