@@ -1,8 +1,8 @@
 <div class="col-xs-12">
 	<div class="section-info">
-		<h2>郑智化的歌</h2>
+		<h2>岁月如歌</h2>
 		<hr />
-		<p>这里分享一些关于郑智化的作品</p>
+		<p>我五音不全</p>
 	</div>
 </div> <!-- /.col-xs-12 -->
 <section>
