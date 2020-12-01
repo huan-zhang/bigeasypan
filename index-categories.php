@@ -8,8 +8,8 @@
 <section>
 <?php 
 	$arg = array(
-		"parent" => "5", // category: "contents"
-		"hide_empty" => false
+		"parent" => "1", // category: "contents"
+		"hide_empty" => true
 	);
 	$categories = get_categories($arg);
 ?>

@@ -3,7 +3,7 @@
 	<div class="col-xm-12">
 		<div id="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="<?php bloginfo( 'wpurl' );?>">大易盘</a></li>
+				<li class="breadcrumb-item"><a href="<?php bloginfo( 'wpurl' );?>"><?php echo bloginfo("name");?></a></li>
 				<li class="breadcrumb-item active"><a href="<?php echo get_category_link(get_current_cat()->cat_ID);?>"><?php echo get_current_cat()->name; ?></a></li> 
 				<!-- <li class="breadcrumb-item active"><?php $category->cat_name;?></li>-->
 			</ol>
@@ -37,7 +37,10 @@ if ($myquery->have_posts()) : while ($myquery->have_posts()) : $myquery->the_pos
           				<h3 class="modal-title"><?php echo $post->post_title; ?></h3>
         			</div>
         			<div class="modal-body">
-        			<?php echo wpautop($post->post_content, true);?>
+        			<?php //echo wpautop(the_content(" "), true);
+                        $content_arr = get_extended ( $post->post_content );
+                        echo $content_arr["main"] . $content_arr["extended"];
+                    ?>
         			</div>
         			<div class="modal-footer">
           				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
