@@ -8,7 +8,7 @@
 <section>
 <?php 
 	$arg = array(
-		"parent" => "1", // category: "contents"
+		"parent" => "" . ROOT_CATEGORY, // category: "contents"
 		"hide_empty" => true
 	);
 	$categories = get_categories($arg);

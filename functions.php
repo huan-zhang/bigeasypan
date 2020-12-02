@@ -45,7 +45,7 @@ function get_current_cat() {
 
 function get_carousel_post ($count = 0) {
 	$args = array(
-		'category' => 2,
+		'category' => CAROUSEL_CATEGORY,
 		'numberposts' => 4
 	);
 	$posts = get_posts($args);
@@ -54,7 +54,7 @@ function get_carousel_post ($count = 0) {
 
 add_filter('the_content', 'strip_images',2);
 function strip_images($content) {
-	if (in_category('2'))
+	if (in_category('' . CAROUSEL_CATEGORY))
 		return preg_replace('/<img[^>]+./','',$content);
 	else 
 		return $content;
