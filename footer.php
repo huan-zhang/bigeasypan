@@ -1,7 +1,7 @@
 </div> <!-- /.container -->
 
 <footer class="blog-footer">
-	<p>©️2016 大易盘</p>
+	<p>©️2016 凌波採月白</p>
     <p>
         <a href="#">Back to top</a>
     </p>
