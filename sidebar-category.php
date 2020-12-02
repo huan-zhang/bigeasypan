@@ -2,15 +2,15 @@
 	<ol class="sidebar-left">
 		<div class="sidebar-image">
 <?php if ( is_category("3")) : ?>	
-			<img src="<?php echo getAttachUrl(160, true);?>" />
+			<p><img src="<?php echo getAttachUrl(160, true);?>" /></p>
 <?php elseif ( is_category("4")) : ?>	
-			<img src="<?php echo getAttachUrl(162, true);?>" />
+			<p><img src="<?php echo getAttachUrl(162, true);?>" /></p>
 <?php elseif ( is_category("6")) : ?>	
-			<img src="<?php echo getAttachUrl(161, true);?>" />
+			<p><img src="<?php echo getAttachUrl(161, true);?>" /></p>
 <?php elseif ( is_category("7")) : ?>	
-			<img src="<?php echo getAttachUrl(163, true);?>" />
+			<p><img src="<?php echo getAttachUrl(163, true);?>" /></p>
 <?php else : ?>
-			<p> it is not category </p>
+			<p>&nbsp;</p>
 <?php endif;?>
 		</div>
 		<div class="sidebar-title">近期更新</div>
