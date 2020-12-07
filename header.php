@@ -30,7 +30,6 @@
 				<a class="blog-nav-item" href="<?php echo esc_url(get_category_link($cat->cat_ID)); ?>" ><?php echo $cat->name; ?></a>
 				<?php endforeach; ?>
 				<?php wp_list_pages( '&title_li=' ); ?>
-				<a class="blog-nav-item active" href="https://moonwhite.me/有话要说/">联系我</a>
 			</nav>
 		</div>
 	</div>
