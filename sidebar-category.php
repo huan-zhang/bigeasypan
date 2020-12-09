@@ -1,6 +1,15 @@
 <div>
+	<!-- 
+	<div>
+		<div>自出版Kindle电子书</div>
+		<a target="_blank" href="https://www.amazon.com/%E5%87%8C%E6%B3%A2%E6%8E%A1%E6%9C%88%E7%99%BD-Traditional-Chinese-%E8%8E%AB%E6%87%B7%E9%81%A0-ebook/dp/B08B33VLWY/ref=sr_1_1?dchild=1&keywords=%E5%87%8C%E6%B3%A2%E6%8E%A1%E6%9C%88%E7%99%BD&qid=1607493353&sr=8-1">
+			<img style="width:100%;height:auto;" src="<?php echo getAttachUrl(BOOK_IMAGE_ID, true);?>" />
+		</a>
+	</div>
+	 -->
 	<ol class="sidebar-left">
 		<div class="sidebar-image">
+		<!-- 
 <?php if ( is_category("3")) : ?>	
 			<p><img src="<?php echo getAttachUrl(160, true);?>" /></p>
 <?php elseif ( is_category("4")) : ?>	
@@ -12,6 +21,13 @@
 <?php else : ?>
 			<p>&nbsp;</p>
 <?php endif;?>
+        -->
+            <div>
+    			<div>自出版Kindle电子书</div>
+    			<a target="_blank" href="https://www.amazon.com/%E5%87%8C%E6%B3%A2%E6%8E%A1%E6%9C%88%E7%99%BD-Traditional-Chinese-%E8%8E%AB%E6%87%B7%E9%81%A0-ebook/dp/B08B33VLWY/ref=sr_1_1?dchild=1&keywords=%E5%87%8C%E6%B3%A2%E6%8E%A1%E6%9C%88%E7%99%BD&qid=1607493353&sr=8-1">
+    				<img style="width:100%;height:auto;" src="<?php echo getAttachUrl(BOOK_IMAGE_ID, true);?>" />
+    			</a>
+    		</div>
 		</div>
 		<div class="sidebar-title">近期更新</div>
 <?php  $count = 0; ?>
